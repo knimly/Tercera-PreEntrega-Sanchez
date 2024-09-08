@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    
+</head>
+
+<body >
+    {% extends "Registro/padre.html" %} {% load static %}
+   
+   
+    {% block contenidoQueCambia %}
+    <link href="{%static "registro/css/estilo.css"%}" rel="stylesheet" />
+    <div>
+        <form class="titulo" action="{% url 'clFormulario' %}" method="POST">
+        {% csrf_token %}
+            {{ clFormulario.as_table }}
+        <input type="submit" value="Enviar">
+        </form>
+    </div>
+    {% endblock %} 
+
+</body>
+
+</html>
